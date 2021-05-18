@@ -1,0 +1,32 @@
+// * IMPORTS
+
+@import 'vars';
+
+// * MAIN STYLE:
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $base-font;
+  font-size: 1.4rem;
+  color: $dark;
+  background-color: $white;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+// * BLOCKS STYLE:
+@import "sign-in";

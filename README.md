@@ -1,7 +1,1 @@
-# gulp - 4
-
-**comands:**
-
-`npm i` => Init project
-`gulp` => Start project
-`gulp build` => Build ver.
+# [Sign in](https://13redfox.github.io/sign-in-account/dist/)
