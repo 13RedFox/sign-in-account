@@ -1,30 +1,52 @@
 .sign-in {
-	padding: 2rem 12rem 2rem 2rem;
+	padding: 1rem;
+	width: 100%;
 	max-width: 1440px;
 	margin: 0 auto;
 
+	@include media($xxl) {
+		padding: 2rem 12rem 2rem 2rem;
+	}
+
 	.wrapper {
 		display: flex;
+		flex-direction: column;
+
+		@include media($xxl) {
+			display: flex;
+			flex-direction: row;
+		}
 	}
 
 	&__slider {
 		position: relative;
-		min-width: 80rem;
+		width: 100%;
+		max-width: 80rem;
 		background: $blue;
 		color: $white;
 		border-radius: 1.5rem;
-		margin-right: 8rem;
+		padding: 1rem;
 		overflow: hidden;
+		order: 2;
 		z-index: 1;
+
+		@include media($xxl) {
+			order: 1;
+			margin-right: 8rem;
+		}
 
 		&:before,
 		&:after {
 			content: '';
-			display: block;
+			display: none;
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			z-index: 1;
+			z-index: 0;
+
+			@include media($tablet) {
+				display: block;
+			}
 		}
 
 		&:before {
@@ -34,22 +56,74 @@
 		}
 
 		&:after {
-			bottom: -28.5rem;
-			right: -15.5rem;
+			bottom: -86%;
+			right: -69%;
+			transform: translate(-50%, -50%);
 			background: url("./../images/graphics_bottom.png") no-repeat;
+
+			@include media($tablet) {
+				display: block;
+			}
+		}
+
+		.swiper-container {
+			width: 600px;
+			height: 300px;
+		}
+
+		.pagination {
+			width: 13rem;
+			height: 1rem;
+			bottom: 3rem;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 3;
+
+			@include media($tablet) {
+				bottom: 12rem;
+			}
+
+			.swiper-pagination-bullet-active {
+				background: $white;
+			}
+
+			.swiper-pagination-bullet {
+				background: $silver;
+				margin-right: 4.5rem;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
 		}
 
 		&-card {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding-top: 18.5rem;
-			padding-bottom: 21.4rem;
+			padding: 10rem 0;
+			z-index: 3;
+			cursor: pointer;
 
-			.wrapper__img {
-				box-shadow: 0px 5rem 5rem 2rem rgba(0, 46, 123, 0.7);
+			@include media($tablet) {
+				padding: 18.5rem 0 21.4rem;
+			}
+		}
+
+		.wrapper__img {
+			max-width: 51.2rem;
+			@include padding-hack(56.4%, cover);
+			margin-bottom: 5rem;
+			z-index: 2;
+
+			@include media($tablet) {
+				@include padding-hack(41%, cover);
+				box-shadow: 0 5rem 5rem 2rem rgba(0, 46, 123, 0.7);
 				margin-bottom: 10rem;
-				z-index: 2;
+			}
+
+			@include media($xxl) {
+				@include padding-hack(38.4%, cover);
 			}
 		}
 
@@ -58,8 +132,12 @@
 			font-weight: 600;
 			line-height: 26px;
 			text-transform: capitalize;
-			margin-bottom: 1.5rem;
+			margin-bottom: 1rem;
 			z-index: 2;
+
+			@include media($tablet) {
+				margin-bottom: 1.5rem;
+			}
 		}
 
 		&-text {
@@ -70,21 +148,41 @@
 	}
 
 	&__form {
-		padding-top: 3rem;
+		order: 1;
+
+		@include media($tablet) {
+			padding-top: 3rem;
+		}
+
+		@include media($xxl) {
+			order: 2;
+		}
 
 		&-logo {
 			display: flex;
-			margin-bottom: 11rem;
+			margin-bottom: 3rem;
+
+			@include media($tablet) {
+				margin-bottom: 11rem;
+			}
 		}
 
 		.heading {
-			margin-bottom: 6rem;
+			margin-bottom: 3rem;
+
+			@include media($tablet) {
+				margin-bottom: 6rem;
+			}
 
 			&__title {
 				font-size: $s28;
 				font-weight: bold;
 				line-height: 34px;
-				margin-bottom: 1.5rem;
+				margin-bottom: 1rem;
+
+				@include media($tablet) {
+					margin-bottom: 1.5rem;
+				}
 			}
 
 			&__text {
@@ -98,6 +196,11 @@
 				display: inline-block;
 				color: $blue;
 				margin-left: 1rem;
+				transition: color .3s ease-in-out;
+
+				&:hover {
+					color: #0A4AB6;
+				}
 			}
 		}
 
@@ -111,7 +214,11 @@
 				margin-bottom: 3rem;
 
 				&-label {
-					margin-bottom: 1.4rem;
+					margin-bottom: .5rem;
+
+					@include media($tablet) {
+						margin-bottom: 1.4rem;
+					}
 				}
 
 				&-input {
@@ -121,17 +228,31 @@
 					border-radius: 8px;
 					padding: 0 18.6rem 0 2rem;
 
-					&:focus {
+					&:focus-visible {
 						border-color: $blue;
+					}
+
+					&:invalid {
+						border-color: $red;
+					}
+
+					&:valid {
+						border-color: $green;
 					}
 				}
 
-				&-text {
+				&-link {
 					display: block;
 					position: absolute;
 					top: 70%;
 					right: 2rem;
 					transform: translateY(-50%);
+					color: $silver;
+					transition: color .3s ease-in-out;
+
+					&:hover {
+						color: $dark;
+					}
 				}
 			}
 
@@ -145,7 +266,8 @@
 			}
 
 			&__btn {
-				min-width: 42rem;
+				width: 100%;
+
 				font-size: $s16;
 				font-weight: 600;
 				color: $white;
@@ -155,9 +277,18 @@
 				box-shadow: 0 10px 30px 0px rgba($blue, 0.7);
 				text-align: center;
 				padding: 1.7rem 0;
-				margin-bottom: 22rem;
+				margin-bottom: 10rem;
 				cursor: pointer;
 				transition: background-color .3s ease-in-out;
+
+				@include media($tablet) {
+					margin-bottom: 22rem;
+				}
+
+				@include media($lg) {
+					max-width: 42rem;
+					margin-bottom: 22rem;
+				}
 
 				&:hover {
 					background-color: $blue-hover;
@@ -171,6 +302,11 @@
 
 		.info {
 			display: flex;
+			margin-bottom: 3rem;
+
+			@include media($lg) {
+				margin-bottom: 0;
+			}
 
 			&__item {
 				margin-right: 2.5rem;
@@ -186,6 +322,11 @@
 				font-weight: 600;
 				color: $gray;
 				text-transform: capitalize;
+				transition: color .3s ease-in-out;
+
+				&:hover {
+					color: $dark;
+				}
 			}
 		}
 	}
