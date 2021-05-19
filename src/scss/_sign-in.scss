@@ -214,10 +214,20 @@
 				margin-bottom: 3rem;
 
 				&-label {
+					display: flex;
+					justify-content: space-between;
+					font-weight: 600;
 					margin-bottom: .5rem;
 
 					@include media($tablet) {
 						margin-bottom: 1.4rem;
+					}
+
+					span {
+						display: none;
+						font-size: 12px;
+						font-weight: 400;
+						color: $red;
 					}
 				}
 
@@ -231,14 +241,14 @@
 					&:focus-visible {
 						border-color: $blue;
 					}
+				}
 
-					&:invalid {
-						border-color: $red;
-					}
+				.error {
+					border-color: $red;
+				}
 
-					&:valid {
-						border-color: $green;
-					}
+				.valid {
+					border-color: $green;
 				}
 
 				&-link {

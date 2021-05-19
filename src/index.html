@@ -10,12 +10,12 @@
 			type="image/x-icon"
 	/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
 				integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
 				crossorigin="anonymous" referrerpolicy="no-referrer"/>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-	<title>MERGE DEVELOPMENT</title>
+	<title>Sign in</title>
 	<link rel="stylesheet" href="./css/style.min.css"/>
 </head>
 <body>
@@ -55,7 +55,7 @@
 				<img src="./images/logo.svg" alt="Logo">
 			</a>
 
-			<form action="#" class="sign-in_form form">
+			<form action="#" method="post" class="sign-in_form form">
 				<div class="heading">
 					<h3 class="heading__title">Sign in</h3>
 					<p class="heading__text">Don’t have an account? <a href="#" class="heading__link"><span>Sign up now</span></a>
@@ -63,27 +63,28 @@
 				</div>
 
 				<div class="form__email">
-					<label class="form__email-label" for="form-email">Email</label>
-					<input class="form__email-input" id="form-email" name="email" type="email" required>
+					<label class="form__email-label error" for="form-email">Email <span>Invalid email</span></label>
+					<input
+							class="form__email-input"
+							id="form-email"
+							name="email"
+							type="email">
 				</div>
 
 				<div class="form__password">
-					<label class="form__password-label" for="form-password">Password</label>
+					<label class="form__password-label error" for="form-password">Password<span>Invalid format too short</span></label>
 					<input
 							class="form__password-input"
 							id="form-password"
 							name="password"
 							type="password"
-							minlength="3"
-							maxlength="8"
-							required>
+							minlength="6">
 					<a href="#" class="form__password-link">
 						<span>Forgot your password?</span>
 					</a>
 				</div>
 
-
-				<button class="form__btn" type="submit">Sign in</button>
+				<input class="form__btn disabled" type="submit" name="submit" value="Sign in">
 			</form>
 
 			<ul class="info">
