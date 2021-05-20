@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	const swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		spaceBetween: 30,
+		speed: 700,
 		loop: true,
-		autoplay: true,
+		autoplay: {
+			delay: 3500,
+		},
 		pagination: {
 			el: '.swiper-pagination',
 		},
