@@ -63,28 +63,31 @@
 				</div>
 
 				<div class="form__email">
-					<label class="form__email-label error" for="form-email">Email <span>Invalid email</span></label>
+					<label class="form__email-label" for="form-email">Email</label>
+					<span class="invalid hidden">Invalid email</span>
 					<input
 							class="form__email-input"
 							id="form-email"
 							name="email"
-							type="email">
+							type="email"
+					>
 				</div>
 
 				<div class="form__password">
-					<label class="form__password-label error" for="form-password">Password<span>Invalid format too short</span></label>
+					<label class="form__password-label" for="form-password">Password</label>
+					<span class="invalid hidden">Invalid format too short</span>
 					<input
 							class="form__password-input"
 							id="form-password"
 							name="password"
 							type="password"
-							minlength="6">
+					>
 					<a href="#" class="form__password-link">
 						<span>Forgot your password?</span>
 					</a>
 				</div>
 
-				<input class="form__btn disabled" type="submit" name="submit" value="Sign in">
+				<input class="form__btn disabled"  type="submit" name="submit" value="Sign in">
 			</form>
 
 			<ul class="info">
