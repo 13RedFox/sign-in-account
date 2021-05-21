@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		speed: 700,
 		loop: true,
 		centeredSlides: true,
-		// autoplay: {
-		// 	delay: 3500,
-		// },
+		autoplay: {
+			delay: 3500,
+		},
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
