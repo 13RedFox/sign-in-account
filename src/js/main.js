@@ -1,34 +1,34 @@
-'use strict';
-
 document.addEventListener('DOMContentLoaded', function () {
+	'use strict';
 
 	// ! Slider
-
 	const swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		spaceBetween: 30,
 		speed: 700,
 		loop: true,
-		autoplay: {
-			delay: 3500,
-		},
+		centeredSlides: true,
+		// autoplay: {
+		// 	delay: 3500,
+		// },
 		pagination: {
 			el: '.swiper-pagination',
+			clickable: true,
 		},
 	});
 
 	// ! Form
-
-	const req = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	const form = document.querySelector('.form'),
+	const form = document.querySelector('.sign-in__form'),
 				email = form.querySelector('input[name="email"]'),
 				password = form.querySelector('input[name="password"]'),
-				btn = form.querySelector('.form__btn');
+				btn = form.querySelector('.sign-in__form-btn');
 
 	let validEmail = false,
-			validPassword = false;
+		validPassword = false;
 
 	function validateEmail() {
+		const req = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 		if (email.value.match(req)) {
 			email.previousElementSibling.classList.add('hidden');
 			email.classList.remove('error');
@@ -60,11 +60,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (validEmail === true && validPassword === true) {
 			btn.disabled = false;
 			btn.classList.remove('disabled')
-		}
-		else {
+		} else {
 			btn.disabled = true;
 			btn.classList.add('disabled')
 		}
+	}
+
+	function resetForm() {
+		document.forms[0].reset();
+		email.classList.remove('valid');
+		password.classList.remove('valid');
+		btn.disabled = true;
+		btn.classList.add('disabled');
 	}
 
 	form.addEventListener('submit', (e) => {
@@ -83,12 +90,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		validatePassword();
 		validateBtn();
 	});
-
-	function resetForm() {
-		form.reset();
-		email.classList.remove('valid');
-		password.classList.remove('valid');
-		btn.disabled = true;
-		btn.classList.add('disabled');
-	}
 });

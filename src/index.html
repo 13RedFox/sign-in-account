@@ -19,50 +19,54 @@
 	<link rel="stylesheet" href="./css/style.min.css"/>
 </head>
 <body>
+
 <section class="sign-in">
-	<div class="wrapper">
+	<div class="sign-in__wrapper">
 
-		<div class="sign-in__slider swiper-container">
-			<div class="swiper-wrapper">
-				<div class="sign-in__slider-card swiper-slide">
-					<div class="wrapper__img">
-						<img class="sign-in__slider-img" src="./images/slide-1.png" alt="slide-image">
+		<div class="sign-in__promo">
+			<div class="sign-in__promo-slider swiper-container">
+				<div class="slider swiper-wrapper">
+					<div class="slider__card swiper-slide">
+						<div class="slider__card-wrapper">
+							<img src="./images/slide-1.png" alt="slider-1">
+						</div>
+						<div class="slider__card-title">tokenplace</div>
+						<div class="slider__card-text">Multi-exchange Trading Terminal</div>
 					</div>
-					<h2 class="sign-in__slider-title">tokenplace</h2>
-					<p class="sign-in__slider-text">Multi-exchange Trading Terminal</p>
-				</div>
-				<div class="sign-in__slider-card swiper-slide">
-					<div class="wrapper__img">
-						<img class="sign-in__slider-img" src="./images/slide-2.png" alt="slide-image">
+					<div class="slider__card swiper-slide">
+						<div class="slider__card-wrapper">
+							<img src="./images/slide-2.png" alt="slider-2">
+						</div>
+						<div class="slider__card-title">fund platform</div>
+						<div class="slider__card-text">Hedge funds wealth management</div>
 					</div>
-					<h2 class="sign-in__slider-title">fund platform</h2>
-					<p class="sign-in__slider-text">Hedge funds wealth management</p>
-				</div>
-				<div class="sign-in__slider-card swiper-slide">
-					<div class="wrapper__img">
-						<img class="sign-in__slider-img" src="./images/slide-3.png" alt="slide-image">
+					<div class="slider__card swiper-slide">
+						<div class="slider__card-wrapper">
+							<img src="./images/slide-3.png" alt="slider-3">
+						</div>
+						<div class="slider__card-title">noviscient</div>
+						<div class="slider__card-text">Management Platform</div>
 					</div>
-					<h2 class="sign-in__slider-title">noviscient</h2>
-					<p class="sign-in__slider-text">Management Platform</p>
 				</div>
-
+				<div class="pagination swiper-pagination"></div>
 			</div>
-			<div class="pagination swiper-pagination"></div>
 		</div>
 
 		<div class="sign-in__form">
+
 			<a href="#" class="sign-in__form-logo">
 				<img src="./images/logo.svg" alt="Logo">
 			</a>
 
-			<form action="#" method="post" class="sign-in_form form">
-				<div class="heading">
+			<form action="#" method="post" class="sign-in__form">
+
+				<div class="sign-in__form-heading heading">
 					<h3 class="heading__title">Sign in</h3>
 					<p class="heading__text">Don’t have an account? <a href="#" class="heading__link"><span>Sign up now</span></a>
 					</p>
 				</div>
 
-				<div class="form__email">
+				<div class="sign-in__form-email form__email">
 					<label class="form__email-label" for="form-email">Email</label>
 					<span class="invalid hidden">Invalid email</span>
 					<input
@@ -73,7 +77,7 @@
 					>
 				</div>
 
-				<div class="form__password">
+				<div class="sign-in__form-password form__password">
 					<label class="form__password-label" for="form-password">Password</label>
 					<span class="invalid hidden">Invalid format too short</span>
 					<input
@@ -87,24 +91,26 @@
 					</a>
 				</div>
 
-				<input class="form__btn disabled"  type="submit" name="submit" value="Sign in">
+				<input class="sign-in__form-btn disabled" type="submit" name="submit" value="Sign in">
+
+				<ul class="sign-in__form-info info">
+					<li class="info__item">
+						<a href="#" class="info__link">contact</a>
+					</li>
+					<li class="info__item">
+						<a href="#" class="info__link">privacy</a>
+					</li>
+					<li class="info__item">
+						<a href="#" class="info__link">terms</a>
+					</li>
+				</ul>
 			</form>
 
-			<ul class="info">
-				<li class="info__item">
-					<a href="#" class="info__link">contact</a>
-				</li>
-				<li class="info__item">
-					<a href="#" class="info__link">privacy</a>
-				</li>
-				<li class="info__item">
-					<a href="#" class="info__link">terms</a>
-				</li>
-			</ul>
-
 		</div>
+
 	</div>
 </section>
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="./js/main.min.js"></script>
 </body>

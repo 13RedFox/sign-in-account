@@ -4,45 +4,54 @@
 	max-width: 1440px;
 	margin: 0 auto;
 
-	@include media($xxl) {
-		padding: 2rem 12rem 2rem 2rem;
+	@include media($tablet) {
+		padding: 2rem;
 	}
 
-	.wrapper {
+	&__wrapper {
 		display: flex;
 		flex-direction: column;
 
-		@include media($xxl) {
-			display: flex;
+		@include media($lg) {
 			flex-direction: row;
+			justify-content: center;
 		}
 	}
 
-	&__slider {
+	// ! Promo
+	&__promo {
 		position: relative;
 		width: 100%;
-		max-width: 80rem;
-		background: $blue;
+		display: flex;
+		justify-content: center;
+		background-color: $blue;
 		color: $white;
 		border-radius: 1.5rem;
-		padding: 1rem;
 		overflow: hidden;
 		order: 2;
-		z-index: 1;
+		z-index: 0;
+
+		@include media($lg) {
+			max-width: 60rem;
+			margin-right: 8.2rem;
+			order: 1;
+		}
 
 		@include media($xxl) {
-			order: 1;
-			margin-right: 8rem;
+			max-width: 80rem;
+			margin-right: 8.2rem;
 		}
 
 		&:before,
 		&:after {
 			content: '';
 			display: none;
-			position: absolute;
 			width: 100%;
 			height: 100%;
-			z-index: 0;
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: -1;
 
 			@include media($tablet) {
 				display: block;
@@ -50,108 +59,165 @@
 		}
 
 		&:before {
-			top: 0;
-			left: 0;
-			background: url("./../images/graphics_top.png") no-repeat;
+			top: -0px;
+			left: -0px;
+			background-image: url("./../images/graphics_top.png");
 		}
 
 		&:after {
-			bottom: -86%;
-			right: -69%;
-			transform: translate(-50%, -50%);
-			background: url("./../images/graphics_bottom.png") no-repeat;
-
-			@include media($tablet) {
-				display: block;
-			}
+			bottom: -100px;
+			right: 0;
+			background-image: url("./../images/graphics_bottom.png");
 		}
 
-		.swiper-container {
-			width: 600px;
-			height: 300px;
-		}
-
-		.pagination {
-			width: 13rem;
-			height: 1rem;
-			bottom: 3rem;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			z-index: 3;
-
-			@include media($tablet) {
-				bottom: 12rem;
-			}
-
-			.swiper-pagination-bullet-active {
-				background: $white;
-			}
-
-			.swiper-pagination-bullet {
-				background: $silver;
-				margin-right: 4.5rem;
-
-				&:last-child {
-					margin-right: 0;
-				}
-			}
-		}
-
-		&-card {
+		&-slider {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding: 10rem 0;
-			z-index: 3;
-			cursor: pointer;
-
-			@include media($tablet) {
-				padding: 18.5rem 0 21.4rem;
-			}
+			justify-content: center;
+			z-index: 1;
+			height: 100%;
 		}
 
-		.wrapper__img {
-			max-width: 51.2rem;
-			@include padding-hack(56.4%, cover);
-			margin-bottom: 5rem;
-			z-index: 2;
+		.slider {
+			text-align: center;
+			padding: 14rem 0;
 
 			@include media($tablet) {
-				@include padding-hack(41%, cover);
-				box-shadow: 0 5rem 5rem 2rem rgba(0, 46, 123, 0.7);
-				margin-bottom: 10rem;
+				padding: 14rem 0;
+			}
+
+			@include media($lg) {
+				padding: 14rem 0;
+			}
+
+			@include media($xls) {
+				padding: 10rem 0;
+			}
+
+			@include media($xl) {
+				padding: 10rem 0;
 			}
 
 			@include media($xxl) {
-				@include padding-hack(38.4%, cover);
+				padding: 18.6rem 0 21.4rem;
 			}
 		}
 
-		&-title {
-			font-size: $s20;
-			font-weight: 600;
-			line-height: 26px;
-			text-transform: capitalize;
-			margin-bottom: 1rem;
-			z-index: 2;
+		.slider__card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			cursor: pointer;
 
-			@include media($tablet) {
-				margin-bottom: 1.5rem;
+			&-wrapper {
+				display: block;
+				@include padding-hack(52.4%, cover);
+				background: gray;
+				width: 28rem;
+				margin-bottom: 10.5rem;
+
+				@include media($s375) {
+					width: 28rem!important;
+					@include padding-hack(46%, cover);
+				}
+
+				@include media($s414) {
+					width: 35rem!important;
+					@include padding-hack(50%, cover);
+				}
+
+				@include media($tablet) {
+					width: 512px!important;
+					@include padding-hack(40.7%, cover);
+					margin-bottom: 8rem;
+					box-shadow: 0 5rem 5rem 2rem rgba(0, 46, 123, 0.7);
+				}
+
+				@include media($lg) {
+					width: 40rem!important;
+					@include padding-hack(52.2%, cover);
+					margin-bottom: 8rem;
+				}
+
+				@include media($xls) {
+					width: 45rem;
+					margin-bottom: 8rem;
+					@include padding-hack(52.2%, cover);
+				}
+
+				@include media($xl) {
+					width: 512px!important;
+					margin-bottom: 8rem;
+					@include padding-hack(50%, cover);
+				}
+
+				@include media($xxl) {
+					margin-bottom: 10.5rem;
+					@include padding-hack(37.4%, cover);
+				}
+			}
+
+			&-title {
+				font-size: $s20;
+				font-weight: 600;
+				line-height: 26px;
+				text-transform: capitalize;
+				margin-bottom: 1rem;
+
+				@include media($xxl) {
+					margin-bottom: 1.5rem;
+				}
+			}
+
+			&-text {
+				font-weight: 600;
+				line-height: 24px;
+				z-index: 2;
 			}
 		}
 
-		&-text {
-			font-weight: 600;
-			line-height: 24px;
-			z-index: 2;
+		.pagination {
+			bottom: 2%;
+			transform: translateY(-50%);
+
+			@include media($xl) {
+				bottom: 3rem;
+			}
+
+			@include media($xxl) {
+				bottom: 12.2rem;
+			}
+		}
+
+		.swiper-pagination-bullets .swiper-pagination-bullet {
+			background-color: rgba($white, .4);
+			margin: 0 4.5rem 0 0;
+
+			&:last-child {
+				margin: 0;
+			}
+
+			&-active {
+				background: $white;
+			}
 		}
 	}
+
+	// ! Form
 
 	&__form {
 		order: 1;
 
 		@include media($tablet) {
 			padding-top: 3rem;
+		}
+
+		@include media($lg) {
+			width: 42rem;
+			order: 2;
+		}
+
+		@include media($xl) {
+			width: 42rem;
 		}
 
 		@include media($xxl) {
@@ -162,7 +228,7 @@
 			display: flex;
 			margin-bottom: 3rem;
 
-			@include media($tablet) {
+			@include media($xxl) {
 				margin-bottom: 11rem;
 			}
 		}
@@ -204,118 +270,127 @@
 			}
 		}
 
-		.form {
+		.form__password,
+		.form__email {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 3rem;
 
-			&__password,
-			&__email {
-				position: relative;
+			&-label {
 				display: flex;
-				flex-direction: column;
-				margin-bottom: 3rem;
-
-				&-label {
-					display: flex;
-					justify-content: space-between;
-					font-weight: 600;
-					margin-bottom: .5rem;
-
-					@include media($tablet) {
-						margin-bottom: 1.4rem;
-					}
-				}
-
-				.invalid {
-					position: absolute;
-					top: 0;
-					right: 0;
-					display: block;
-					font-size: 12px;
-					font-weight: 400;
-					line-height: 24px;
-					color: $red;
-				}
-
-				.hidden {
-					display: none;
-				}
-
-				&-input {
-					min-height: 5.4rem;
-					border: 1px solid $silver-input;
-					outline: none;
-					border-radius: 8px;
-					padding: 0 18.6rem 0 2rem;
-					transition: border-color .3s ease-in-out;
-
-					&:focus-visible {
-						border-color: $blue;
-					}
-				}
-
-				.error {
-					border-color: $red;
-				}
-
-				.valid {
-					border-color: $green;
-				}
-
-				&-link {
-					display: block;
-					position: absolute;
-					top: 70%;
-					right: 2rem;
-					transform: translateY(-50%);
-					color: $silver;
-					transition: color .3s ease-in-out;
-
-					&:hover {
-						color: $dark;
-					}
-				}
-			}
-
-			.disabled {
-				background-color: $silver;
-				box-shadow: none;
-				cursor: not-allowed;
-
-				&:hover {
-					background-color: $silver;
-				}
-			}
-
-			&__btn {
-				width: 100%;
-				font-size: $s16;
+				justify-content: space-between;
 				font-weight: 600;
-				color: $white;
-				background-color: $blue;
-				border: none;
-				border-radius: 8px;
-				box-shadow: 0 10px 30px 0px rgba($blue, 0.7);
-				text-align: center;
-				padding: 1.7rem 0;
-				margin-bottom: 10rem;
-				cursor: pointer;
-				transition: all .3s ease-in-out;
+				margin-bottom: .5rem;
 
 				@include media($tablet) {
-					margin-bottom: 22rem;
+					margin-bottom: 1.4rem;
 				}
+			}
 
-				@include media($lg) {
-					max-width: 42rem;
-					margin-bottom: 22rem;
+			.invalid {
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: block;
+				font-size: 12px;
+				font-weight: 400;
+				line-height: 24px;
+				color: $red;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			&-input {
+				min-height: 5.4rem;
+				border: 1px solid $silver-input;
+				outline: none;
+				border-radius: 8px;
+				padding: 0 18.6rem 0 2rem;
+				transition: border-color .3s ease-in-out;
+
+				&:focus-visible {
+					border-color: $blue;
 				}
+			}
+
+			.error {
+				border-color: $red;
+			}
+
+			.valid {
+				border-color: $green;
+			}
+
+			&-link {
+				display: block;
+				position: absolute;
+				top: 70%;
+				right: 2rem;
+				transform: translateY(-50%);
+				color: $silver;
+				transition: color .3s ease-in-out;
 
 				&:hover {
-					background-color: $blue-hover;
+					color: $dark;
 				}
+			}
+		}
 
-				&:active {
-					background-color: $blue;
-				}
+		&-btn {
+			width: 100%;
+			font-size: $s16;
+			font-weight: 600;
+			color: $white;
+			background-color: $blue;
+			border: none;
+			border-radius: 8px;
+			box-shadow: 0 10px 30px 0px rgba($blue, 0.7);
+			text-align: center;
+			padding: 1.7rem 0;
+			margin-bottom: 10rem;
+			cursor: pointer;
+			transition: all .3s ease-in-out;
+
+			@include media($tablet) {
+				margin-bottom: 8rem;
+			}
+
+			@include media($lg) {
+				width: 100%;
+				max-width: 42rem;
+			}
+
+			@include media($xls) {
+				margin-bottom: 8rem;
+			}
+
+			@include media($xl) {
+				margin-bottom: 8rem;
+			}
+
+			@include media($xxl) {
+				margin-bottom: 22rem;
+			}
+
+			&:hover {
+				background-color: $blue-hover;
+			}
+
+			&:active {
+				background-color: $blue;
+			}
+		}
+
+		.disabled {
+			background-color: $silver;
+			box-shadow: none;
+			cursor: not-allowed;
+
+			&:hover {
+				background-color: $silver;
 			}
 		}
 
